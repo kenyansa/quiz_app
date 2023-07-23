@@ -1,11 +1,11 @@
 const questions = [
     {
-        question: "Qeustion one",
+        question: "What is Kenya best known for?",
         answers: [
-            {text: "answer 1", correct: false},
-            {text: "answer 2", correct: true},
-            {text: "answer 3", correct: false},
-            {text: "answer 4", correct: false}
+            {text: "Swimming", correct: false},
+            {text: "Military power", correct: false},
+            {text: "Safaris", correct: true},
+            {text: "Scientific farming", correct: false}
         ]
     },
     {
@@ -46,7 +46,7 @@ const questions = [
     }
 ];
 const questionElement = document.getElementById("question");
-const answerButton = document.getElementById("answer-buttons");
+const answerButtons = document.querySelector(".answer-buttons");
 const nextButton = document.getElementById("next-btn");
 
 let questionIndex =  0;
@@ -60,6 +60,7 @@ function startQuiz(){
 }
 
 function showQuestion(){
+    resetState();
     let currentQuestion = questions[questionIndex];
     let questionNo = questionIndex + 1;
     questionElement.innerHTML = questionNo + "." + currentQuestion.question;
@@ -68,6 +69,15 @@ function showQuestion(){
         const button = document.createElement("button");
         button.innerHTML = answer.text;
         button.classList.add("btn");
-        answerButton.appendChild(button);
+        answerButtons.appendChild(button);
     });
 }
+
+function resetState(){
+    nextButton.style.display = "none";
+    while(answerButtons.firstChild){
+        answerButtons.removeChild(answerButtons.firstChild)
+    }
+}
+
+startQuiz();
