@@ -39,4 +39,11 @@ body{
     margin: 10px 0;
     text-align: left;
     padding: 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.btn:hover{
+    background: #222;
+    color: #fff;
 }
