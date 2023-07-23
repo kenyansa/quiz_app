@@ -9,39 +9,39 @@ const questions = [
         ]
     },
     {
-        question: "Qeustion Two",
+        question: "Which is the deepst fresh water lake in the world?",
         answers: [
-            {text: "answer 1", correct: false},
-            {text: "answer 2", correct: true},
-            {text: "answer 3", correct: false},
-            {text: "answer 4", correct: false}
+            {text: "Lake Baikal", correct: true},
+            {text: "Lake Vostok", correct: false},
+            {text: "Lake Tanganyika", correct: false},
+            {text: "Lake O'Higgins ", correct: false}
         ]
     },
     {
-        question: "Qeustion Three",
+        question: "WWhich country has the larget prison population in the world?",
         answers: [
-            {text: "answer 1", correct: false},
-            {text: "answer 2", correct: true},
-            {text: "answer 3", correct: false},
-            {text: "answer 4", correct: false}
+            {text: "China", correct: false},
+            {text: "Afghanistan", correct: false},
+            {text: "The US", correct: true},
+            {text: "India", correct: false}
         ]
     },
     {
-        question: "Qeustion Four",
+        question: "Which of the following never served as a vice or deputy president in Kenya?",
         answers: [
-            {text: "answer 1", correct: false},
-            {text: "answer 2", correct: true},
-            {text: "answer 3", correct: false},
-            {text: "answer 4", correct: false}
+            {text: "Mwai Kibaki", correct: false},
+            {text: "Joseph Murumbi", correct: true},
+            {text: "Josephat Karanja", correct: false},
+            {text: "Charles Njonjo", correct: true}
         ]
     },
     {
-        question: "Qeustion Five",
+        question: "Which of the following is not a psychologist?",
         answers: [
-            {text: "answer 1", correct: false},
-            {text: "answer 2", correct: true},
-            {text: "answer 3", correct: false},
-            {text: "answer 4", correct: false}
+            {text: "Robert Sternberg", correct: false},
+            {text: "Jordan Peterson", correct: false},
+            {text: "Wu Jinglian", correct: true},
+            {text: "Martin Seligman", correct: false}
         ]
     }
 ];
