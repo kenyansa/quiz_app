@@ -18,7 +18,7 @@ const questions = [
         ]
     },
     {
-        question: "WWhich country has the larget prison population in the world?",
+        question: "Which country has the larget prison population in the world?",
         answers: [
             {text: "China", correct: false},
             {text: "Afghanistan", correct: false},
@@ -51,3 +51,10 @@ const nextButton = document.getElementById("next-btn");
 
 let questionIndex =  0;
 let score = 0;
+
+function startQuiz(){
+    questionIndex = 0;
+    score = 0;
+    nextButton.innerHTML = "Next";
+    showQuestion();
+}
