@@ -91,7 +91,7 @@ function selectAnswer(){
     if(isCorrect){
         selectedBtn.classList.add("correct");
     }else{
-        selectedBtn.classList.add("inCorrect");
+        selectedBtn.classList.add("incorrect");
     }
 }
 startQuiz();
