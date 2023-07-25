@@ -114,11 +114,20 @@ function updateTimerDisplay(timeLeft){
 }
 
 function handleTimeUp(){ //called when time for the question is up
-    handleNextButton(); 
+    clearInterval(timer);
+    questionElement.innerHTML = "Time Ended!!";
+    showCorrectAnswer();
+}
+
+function showCorrectAnswer(){
+    const correctAnswer = questions[questionIndex].answers.find(answer => answer.correct);
+    const correctButton = Array.from(answerButtons/children).find(button => button.innerHTML = correctAnswer.text);
+    correctButton.classList.add('correct');
 }
 
 
 function selectAnswer(e){ //function called upon clicking on answer button and checks if the button has 'true' data-correct
+    clearInterval(timer); //stop timer when answer is selected
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct == "true";
     if(isCorrect){ //if answerbe correct, add correct class to the button and increment the score
