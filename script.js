@@ -110,24 +110,33 @@ function startTimer(seconds){
     }, 1000);
 }
 function updateTimerDisplay(timeLeft){
-    timerElement.textContent = `Time Left: ${timeLeft}s`;
+    timerElement.textContent = `Time Left: ${timeLeft} s`;
 }
 
 function handleTimeUp(){ //called when time for the question is up
     clearInterval(timer);
-    questionElement.innerHTML = "Time Ended!!";
+    timerElement.innerHTML = "Time Ended!!";
     showCorrectAnswer();
+    nextButton.style.display = "block";
 }
 
+function disableAnswerButtons(){
+    const answerButtons = document.querySelectorAll(".answer-buttons button");
+    answerButtons.forEach(button =>{
+        button.disabled = true;
+    });
+}
 function showCorrectAnswer(){
     const correctAnswer = questions[questionIndex].answers.find(answer => answer.correct);
-    const correctButton = Array.from(answerButtons/children).find(button => button.innerHTML = correctAnswer.text);
+    const correctButton = Array.from(answerButtons.children).find(button => button.innerHTML = correctAnswer.text);
     correctButton.classList.add('correct');
 }
 
 
 function selectAnswer(e){ //function called upon clicking on answer button and checks if the button has 'true' data-correct
     clearInterval(timer); //stop timer when answer is selected
+    disableAnswerButtons(); //disable all answers after selecting an answer
+
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct == "true";
     if(isCorrect){ //if answerbe correct, add correct class to the button and increment the score
