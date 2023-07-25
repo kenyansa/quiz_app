@@ -9,7 +9,7 @@ This is a simple app that allows the user to answer timed quizzes.
 ## BDD
 If the user does not answer within 10 sec, it is counted as though they answered it wrong. They cannot select anything. <br>
 The user also gets a pop up message of "Time Ended!!" <br>
-They can only more to the next question by clicking the "next" button. <br>
+You can only move to the next question by clicking the "next" button. <br>
 At the end, the app tallies correct answers and presents to the result.
 
 ## :computer: Technologies Used
