@@ -50,6 +50,9 @@ const questionElement = document.getElementById("question"); //holds ref to html
 const answerButtons = document.querySelector(".answer-buttons"); //holds ref where answer buttons will be displayed
 const nextButton = document.getElementById("next-btn"); //holds ref for next button for moving to the next question
 const timerElement = document.getElementById('timer');
+const styleTag = document.createElement("style");
+styleTag.innerHTML = `.time-ended{color: red;}`;
+document.head.appendChild(styleTag); //for styling, still looking for a simple way to do it.
 
 //initializing q-index and score for tracking
 let questionIndex =  0;
@@ -116,15 +119,9 @@ function updateTimerDisplay(timeLeft){
 function handleTimeUp(){ //called when time for the question is up
     clearInterval(timer);
     timerElement.innerHTML = "Time Ended!!";
+    timerElement.classList.add("time-ended"); // add time-end class for formatting
     showCorrectAnswer();
     nextButton.style.display = "block";
-}
-
-function disableAnswerButtons(){
-    const answerButtons = document.querySelectorAll(".answer-buttons button");
-    answerButtons.forEach(button =>{
-        button.disabled = true;
-    });
 }
 function showCorrectAnswer(){
     const correctAnswer = questions[questionIndex].answers.find(answer => answer.correct);
@@ -155,6 +152,7 @@ function showScore(){ //show final score after answering all questions, resettin
     nextButton.removeEventListener('click', handleNextButton);
     nextButton.addEventListener('click', startQuiz);
 }
+
 function handleNextButton(){ //increment question index and check if there are more quiz to be answered.
     questionIndex++;
     if(questionIndex<questions.length){
