@@ -109,6 +109,9 @@ function startTimer(seconds){
         }
     }, 1000);
 }
+function updateTimerDisplay(timeLeft){
+    timerElement.textContent = `Time Left: ${timeLeft}s`;
+}
 
 function selectAnswer(e){ //function called upon clicking on answer button and checks if the button has 'true' data-correct
     const selectedBtn = e.target;
