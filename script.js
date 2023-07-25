@@ -49,10 +49,12 @@ const questions = [
 const questionElement = document.getElementById("question"); //holds ref to html element h1 with id 'question' where the current question will be displayed
 const answerButtons = document.querySelector(".answer-buttons"); //holds ref where answer buttons will be displayed
 const nextButton = document.getElementById("next-btn"); //holds ref for next button for moving to the next question
+const timerElement = document.getElementById('timer');
 
 //initializing q-index and score for tracking
 let questionIndex =  0;
 let score = 0;
+let timer;
 
 //function for starting the quiz
 function startQuiz(){
@@ -82,13 +84,30 @@ function showQuestion(){
         }
         button.addEventListener("click", selectAnswer);
     });
+    startTimer(10); //start timer for each question
 }
 
 function resetState(){
-    nextButton.style.display = "none"; //this function ides nextButton and removes any child elements from answerButtons using while loop
+    nextButton.style.display = "none"; //this function hides nextButton and removes any child elements from answerButtons using while loop
+    timerElement.textContent = ""; //Clear the timer display
     while(answerButtons.firstChild){
         answerButtons.removeChild(answerButtons.firstChild)
     }
+}
+
+function startTimer(seconds){
+    let timeLeft = seconds;
+    updateTimerDisplay(timeLeft);
+
+    timer = setInterval(()=>{
+        timeLeft--;
+        updateTimerDisplay(timeLeft);
+
+        if(timeLeft<=0){
+            clearInterval(timer);
+            handleTimeUp();
+        }
+    }, 1000);
 }
 
 function selectAnswer(e){ //function called upon clicking on answer button and checks if the button has 'true' data-correct
