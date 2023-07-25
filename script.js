@@ -110,7 +110,7 @@ function startTimer(seconds){
     }, 1000);
 }
 function updateTimerDisplay(timeLeft){
-    timerElement.textContent = `Time Left: ${timeLeft} s`;
+    timerElement.textContent = `Time Left : ${timeLeft} s`;
 }
 
 function handleTimeUp(){ //called when time for the question is up
@@ -145,12 +145,6 @@ function selectAnswer(e){ //function called upon clicking on answer button and c
     }else{
         selectedBtn.classList.add("incorrect"); //if answer incorrect, add incorrect answer to the button
     }
-    Array.from(answerButtons.children).forEach(button =>{ //disable all answer buttons after the selection
-        if(button.dataset.correct === "true"){
-            button.classList.add("correct");
-        }
-        button.disabled = true;
-    });
     nextButton.style.display = "block"; //display nextButton
 }
 
@@ -172,9 +166,12 @@ function handleNextButton(){ //increment question index and check if there are m
         nextButton.addEventListener("click", startQuiz) // Add a new event listener to start the quiz again
     }
 }
-// nextButton.addEventListener('click', ()=>{
-//     if(questionIndex < questions.length){
-//         handleNextButton(); //check if there are quiz to be answered upon clicking the button
-//     }
-// })
+
+function disableAnswerButtons(){
+    const answerButtons = document.querySelectorAll(".answer-buttons button");
+    answerButtons.forEach(button =>{
+        button.disabled = true;
+    });
+}
+
 startQuiz(); 
