@@ -102,6 +102,15 @@ function selectAnswer(e){
     });
     nextButton.style.display = "block";
 }
+
+function handleNextButton(){
+    questionIndex++;
+    if(currentQuestion<questions.length){
+        showQuestion();
+    }else{
+        showQuestion;
+    }
+}
 nextButton.addEventListener('click', ()=>{
     if(questionIndex < questions.length){
         handleNextButton();
