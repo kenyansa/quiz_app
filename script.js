@@ -113,6 +113,11 @@ function updateTimerDisplay(timeLeft){
     timerElement.textContent = `Time Left: ${timeLeft}s`;
 }
 
+function handleTimeUp(){ //called when time for the question is up
+    handleNextButton(); 
+}
+
+
 function selectAnswer(e){ //function called upon clicking on answer button and checks if the button has 'true' data-correct
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct == "true";
