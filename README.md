@@ -4,7 +4,8 @@ Displays random quizes
 The project was developed by Justine Kenyansa.
 
 ## :flashlight: Description
-This is a simple app that allows the user to answer timed quizzes.
+This is a simple app that allows the user to answer timed quizzes. <br>
+It is meant to test knowledge about Kenya
 
 ## BDD
 If the user does not answer within 10 sec, it is counted as though they answered it wrong. They cannot select anything. <br>
